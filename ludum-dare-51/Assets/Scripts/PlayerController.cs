@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+	public TMPro.TMP_Text hasForcefieldText;
+	public TMPro.TMP_Text healthText;
 
 	public float speed = 6.0F;
 	public float gravity = 20.0F;
@@ -50,6 +52,12 @@ public class PlayerController : MonoBehaviour
 		Rotate();
 
 		HandleForcefield();
+		healthText.text = "Health: " + health + " / 3";
+		if (hasForcefield) {
+			hasForcefieldText.color = Color.blue;
+		} else {
+			hasForcefieldText.color = Color.gray;
+		}
 	}
 
 	private void HandleForcefield() {
