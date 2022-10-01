@@ -6,15 +6,16 @@ public class BombSpawner : MonoBehaviour
 {
     public GameObject bomb;
     private float platformRaiseTime;
-    private float platformLowerTime = 3f;
+    private float platformLowerTime = 1f;
     private float timeSincePlatformMoved = 0;
 
     private bool platformIsRaised = false;
     private bool bombIsSpawned = false;
+    private float bombCountTime = 0;
 
     private void Awake()
     {
-        platformRaiseTime = 7f;
+        platformRaiseTime = 4f;
     }
 
     // Start is called before the first frame update
@@ -25,7 +26,10 @@ public class BombSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSincePlatformMoved += Time.deltaTime;
+        float deltaTime = Time.deltaTime;
+        timeSincePlatformMoved += deltaTime;
+        bombCountTime += deltaTime;
+
         if (!platformIsRaised && timeSincePlatformMoved >= platformRaiseTime)
         {
             RaisePlatform();
@@ -67,4 +71,24 @@ public class BombSpawner : MonoBehaviour
             timeSincePlatformMoved = 0;
         }
     }
+
+    public float GetPlatformRaiseTime() {
+        return platformRaiseTime;
+    }
+
+    public float GetPlatformLowerTime() {
+        return platformLowerTime;
+    }
+
+    public float TimeSincePlatformMoved() {
+        return timeSincePlatformMoved;
+    }
+
+    public void SetBombCountTime(float time) {
+        this.bombCountTime = time;
+    }
+
+    public float GetBombCountTime() {
+        return bombCountTime;
+	}
 }

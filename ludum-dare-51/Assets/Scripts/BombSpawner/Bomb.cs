@@ -13,6 +13,7 @@ public class Bomb : MonoBehaviour {
         yield return new WaitForSeconds(3);
         particles.Play();
         CameraShake.Shake(0.25f, 2f);
+        GameObject.FindGameObjectWithTag("BombSpawner").GetComponent<BombSpawner>().SetBombCountTime(0);
         yield return new WaitForSeconds(1f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().BombExploded();
         Destroy(gameObject);
