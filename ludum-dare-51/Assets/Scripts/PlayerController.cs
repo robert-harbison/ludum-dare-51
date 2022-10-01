@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
 	{
 		Move();
 		Rotate();
-
 		HandleForcefield();
 		healthText.text = "Health: " + health + " / 3";
 		if (hasForcefield) {
