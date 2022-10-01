@@ -14,7 +14,7 @@ public class BombSpawner : MonoBehaviour
 
     private void Awake()
     {
-        platformRaiseTime = 10f;
+        platformRaiseTime = 7f;
     }
 
     // Start is called before the first frame update
@@ -33,10 +33,6 @@ public class BombSpawner : MonoBehaviour
         {
             LowerPlatform();
         }
-        if (platformIsRaised && !bombIsSpawned)
-        {
-            SpawnBomb();
-        }
     }
 
     private void SpawnBomb()
@@ -49,24 +45,25 @@ public class BombSpawner : MonoBehaviour
         if (platformIsRaised == true) return;
         Vector3 targetPosition = new Vector3(transform.position.x, 1.5f, transform.position.z);
         this.transform.position = Vector3.Lerp(transform.position, targetPosition, 10f * Time.deltaTime);
-        Debug.Log("Raise Platform");
         if(Mathf.Approximately(transform.position.y, 1.5f))
         {
             platformIsRaised = true;
             timeSincePlatformMoved = 0;
-        }
-            
+        }   
     }
 
     private void LowerPlatform()
     {
         if (platformIsRaised == false) return;
+        if (!bombIsSpawned) {
+            SpawnBomb();
+        }
         Vector3 targetPosition = new Vector3(transform.position.x, -1.5f, transform.position.z);
         this.transform.position = Vector3.Lerp(transform.position, targetPosition, 10f * Time.deltaTime);
-        Debug.Log("Lower Platform");
         if (Mathf.Approximately(transform.position.y, -1.5f))
         {
             platformIsRaised = false;
+            bombIsSpawned = false;
             timeSincePlatformMoved = 0;
         }
     }

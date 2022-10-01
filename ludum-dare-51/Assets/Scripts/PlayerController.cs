@@ -68,4 +68,10 @@ public class PlayerController : MonoBehaviour
 	private void KillPlayer() {
 		Destroy(gameObject);
 	}
+
+	public void BombExploded() {
+		if (!forcefield.activeSelf) {
+			KillPlayer();
+		}
+	}
 }
