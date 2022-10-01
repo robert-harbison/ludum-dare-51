@@ -1160,6 +1160,14 @@ PrefabInstance:
       propertyPath: forcefield
       value: 
       objectReference: {fileID: 455812285}
+    - target: {fileID: 4085450756906252367, guid: ac40398924c054d42a56f40674aa35ec, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 746950606}
+    - target: {fileID: 4085450756906252367, guid: ac40398924c054d42a56f40674aa35ec, type: 3}
+      propertyPath: hasForcefieldText
+      value: 
+      objectReference: {fileID: 421995550}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac40398924c054d42a56f40674aa35ec, type: 3}
 --- !u!1001 &5859850778505332210
