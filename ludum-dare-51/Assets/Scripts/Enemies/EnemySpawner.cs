@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	private void SpawnEnemy() {
+		GameManager.instance.currentEnemyCount++;
 		Instantiate(enemyToSpawn, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
 	}
 }

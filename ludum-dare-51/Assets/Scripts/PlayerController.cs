@@ -11,10 +11,14 @@ public class PlayerController : MonoBehaviour
 	private Vector3 moveDirection = Vector3.zero;
 	public CharacterController controller;
 
+	private int health = 3;
+	public GameObject forcefield;
+
 	void Start()
 	{
 		// Store reference to attached component
 		controller = GetComponent<CharacterController>();
+		forcefield.SetActive(false);
 	}
 
 	void Move()
@@ -42,5 +46,26 @@ public class PlayerController : MonoBehaviour
 	{
 		Move();
 		Rotate();
+
+		HandleForcefield();
+	}
+
+	private void HandleForcefield() {
+		if (Input.GetKey(KeyCode.F)) {
+			forcefield.SetActive(true);
+		} else if (forcefield.activeSelf) {
+			forcefield.SetActive(false);
+		}
+	}
+
+	public void ZombieBite() {
+		health -= 1;
+		if (health <= 0) {
+			KillPlayer();
+		}
+	}
+
+	private void KillPlayer() {
+		Destroy(gameObject);
 	}
 }
