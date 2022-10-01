@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Zombie
   - BombSpawner
+  - PowerUp
   layers:
   - Default
   - TransparentFX

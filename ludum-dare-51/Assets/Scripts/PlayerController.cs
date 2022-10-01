@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 	private int health = 3;
 	public GameObject forcefield;
 
+	private bool hasForcefield = true;
+
 	void Start()
 	{
 		// Store reference to attached component
@@ -52,9 +54,29 @@ public class PlayerController : MonoBehaviour
 
 	private void HandleForcefield() {
 		if (Input.GetKey(KeyCode.F)) {
-			forcefield.SetActive(true);
+			if (hasForcefield) {
+				forcefield.SetActive(true);
+				hasForcefield = false;
+			}
 		} else if (forcefield.activeSelf) {
 			forcefield.SetActive(false);
+		}
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == "PowerUp") {
+			PowerUp powerUp = other.gameObject.GetComponent<PowerUp>();
+
+			switch (powerUp.type) {
+				case PowerUpType.FORCEFIELD:
+					hasForcefield = true;
+					break;
+				case PowerUpType.HEALTH:
+					health += 1;
+					break;
+				default:
+					break;
+			}
 		}
 	}
 
