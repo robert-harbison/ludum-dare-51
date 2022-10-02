@@ -10,4 +10,8 @@ public enum PowerUpType {
 public class PowerUp : MonoBehaviour {
 
     public PowerUpType type;
+
+	private void Start() {
+		Destroy(gameObject, 15f);
+	}
 }
