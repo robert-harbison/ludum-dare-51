@@ -10,7 +10,7 @@ public class ProjectileSpawner : MonoBehaviour
 
     private void FireProjectile()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !GameManager.instance.IsGameOverPanelActive())
         {
             if (Cursor.lockState == CursorLockMode.Locked) {
                 PlayerController playerController = player.GetComponent<PlayerController>();

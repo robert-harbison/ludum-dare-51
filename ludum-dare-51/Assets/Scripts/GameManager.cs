@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour {
 		gameStartPanel.SetActive(true);
     }
 
+	public bool IsGameOverPanelActive() {
+		return gameOverPanel.activeSelf;
+	}
+
 	public void GameEnd()
     {
 		gameOverKillsText.text = "Kills: " + playerKills;
