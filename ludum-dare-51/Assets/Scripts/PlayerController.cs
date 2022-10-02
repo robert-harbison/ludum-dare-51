@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
 		isDead = true;
 		playerModel.SetActive(false);
 		GameManager.instance.SaveHighscore();
+		GameManager.instance.GameEnd();
 	}
 
 	public bool IsForcefieldOpen() {
