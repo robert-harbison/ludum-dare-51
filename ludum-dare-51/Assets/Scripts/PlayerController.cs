@@ -79,11 +79,13 @@ public class PlayerController : MonoBehaviour
 					hasForcefield = true;
 					break;
 				case PowerUpType.HEALTH:
-					health += 1;
+					if (health < 3) health += 1;
 					break;
 				default:
 					break;
 			}
+
+			Destroy(other.gameObject);
 		}
 	}
 

@@ -26,16 +26,15 @@ public class Zombie : MonoBehaviour {
             agent.destination = player.transform.position;
 	   } else {
             player.SendMessage("ZombieBite");
-            Destroy(gameObject);
-	   }
-        if (health <= 0) Destroy(gameObject);
+            KillZombie(false);
+
+       }
+        if (health <= 0) KillZombie(true);
     }
 
-    public void DamageZombie(float damage)
-    {
+    public void DamageZombie(float damage) {
         health -= damage;
-            KillZombie(false);
-		}
+    }
 
     private void KillZombie(bool withDrop) {
         if (withDrop) {

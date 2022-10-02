@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileSpawner : MonoBehaviour
 {
     public GameObject projectile;
-    public GameObject player;
+    private GameObject player;
     private void FireProjectile()
     {
         if (Input.GetMouseButtonDown(0))
