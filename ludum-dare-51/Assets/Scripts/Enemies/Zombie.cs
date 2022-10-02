@@ -14,7 +14,10 @@ public class Zombie : MonoBehaviour {
     public float range = 1f;
     private float health;
 
+    private Rigidbody rb;
+
 	private void Start() {
+        rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         health = 10;
 	}
@@ -22,14 +25,43 @@ public class Zombie : MonoBehaviour {
 	private void Update() {
         float dist = Vector3.Distance(this.transform.position, player.transform.position);
 
-       if (dist > range) {
+        bool isForceFieldOpen = player.GetComponent<PlayerController>().IsForcefieldOpen();
+
+        float biteRange = isForceFieldOpen ? 3f : range;
+
+       if (dist > biteRange) {
             agent.destination = player.transform.position;
 	   } else {
-            player.SendMessage("ZombieBite");
-            KillZombie(false);
-
+            if (!isForceFieldOpen) {
+                player.SendMessage("ZombieBite");
+                KillZombie(false);
+            } else {
+                EnablePhysics();
+                Vector3 launch = transform.forward * -1;
+                launch.y = 1.5f;
+                rb.AddForce(launch, ForceMode.VelocityChange);
+            }
        }
+
         if (health <= 0) KillZombie(true);
+
+        transform.LookAt(player.transform);
+    }
+
+	private void OnCollisionStay(Collision collision) {
+		if (collision.gameObject.tag == "Arena") {
+            DisablePhysics();
+		}
+	}
+
+	private void EnablePhysics() {
+        rb.isKinematic = false;
+        agent.enabled = false;
+	}
+
+    private void DisablePhysics() {
+        rb.isKinematic = true;
+        agent.enabled = true;
     }
 
     public void DamageZombie(float damage) {

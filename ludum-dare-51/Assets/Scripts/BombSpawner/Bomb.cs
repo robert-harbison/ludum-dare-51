@@ -14,8 +14,8 @@ public class Bomb : MonoBehaviour {
         particles.Play();
         CameraShake.Shake(0.25f, 2f);
         GameObject.FindGameObjectWithTag("BombSpawner").GetComponent<BombSpawner>().SetBombCountTime(0);
-        yield return new WaitForSeconds(1f);
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().BombExploded();
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }

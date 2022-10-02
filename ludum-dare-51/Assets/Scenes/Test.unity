@@ -571,7 +571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445844110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0.64}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0.829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -633,7 +633,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455812285}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -1360,12 +1360,124 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7775967257788300801, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300803, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300805, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300807, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300809, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300811, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300813, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300815, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300825, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300827, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300829, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300831, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300897, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300899, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300901, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300903, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300905, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
     - target: {fileID: 7775967257788300905, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300907, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300909, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300911, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300913, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300915, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300917, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300919, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300921, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300923, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
     - target: {fileID: 7775967257788300925, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
       propertyPath: m_Name
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300925, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
+      value: Arena
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775967257788300927, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}
+      propertyPath: m_TagString
       value: Arena
       objectReference: {fileID: 0}
     - target: {fileID: 7775967257788523101, guid: 0d7f3b6929de1e24a895589b523bcd64, type: 3}

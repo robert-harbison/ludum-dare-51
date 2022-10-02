@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1574525651509842326}
   - component: {fileID: 1574525651509842325}
   - component: {fileID: 1574525651509842322}
+  - component: {fileID: -9155143609147411996}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -138,3 +139,19 @@ MonoBehaviour:
   healthUp: {fileID: 1607054876794807064, guid: ec80bb57d9304e148a9dad7b2f1cdeec, type: 3}
   forcefieldUp: {fileID: 3536992186082419761, guid: c76c9706ffbd0de4c8d28d979b78b4a1, type: 3}
   range: 1
+--- !u!54 &-9155143609147411996
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574525651509842324}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
