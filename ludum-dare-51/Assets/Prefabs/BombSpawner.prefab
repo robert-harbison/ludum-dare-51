@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6961542521679397395}
   m_Layer: 0
   m_Name: BombSpawner
-  m_TagString: Untagged
+  m_TagString: BombSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

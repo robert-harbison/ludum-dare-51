@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+	public TMPro.TMP_Text hasForcefieldText;
+	public TMPro.TMP_Text healthText;
 
 	public float speed = 6.0F;
 	public float gravity = 20.0F;
@@ -13,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
 	private int health = 3;
 	public GameObject forcefield;
+
+	private bool hasForcefield = true;
 
 	void Start()
 	{
@@ -46,15 +50,40 @@ public class PlayerController : MonoBehaviour
 	{
 		Move();
 		Rotate();
-
 		HandleForcefield();
+		healthText.text = "Health: " + health + " / 3";
+		if (hasForcefield) {
+			hasForcefieldText.color = Color.blue;
+		} else {
+			hasForcefieldText.color = Color.gray;
+		}
 	}
 
 	private void HandleForcefield() {
 		if (Input.GetKey(KeyCode.F)) {
-			forcefield.SetActive(true);
+			if (hasForcefield) {
+				forcefield.SetActive(true);
+				hasForcefield = false;
+			}
 		} else if (forcefield.activeSelf) {
 			forcefield.SetActive(false);
+		}
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == "PowerUp") {
+			PowerUp powerUp = other.gameObject.GetComponent<PowerUp>();
+
+			switch (powerUp.type) {
+				case PowerUpType.FORCEFIELD:
+					hasForcefield = true;
+					break;
+				case PowerUpType.HEALTH:
+					health += 1;
+					break;
+				default:
+					break;
+			}
 		}
 	}
 
@@ -67,5 +96,11 @@ public class PlayerController : MonoBehaviour
 
 	private void KillPlayer() {
 		Destroy(gameObject);
+	}
+
+	public void BombExploded() {
+		if (!forcefield.activeSelf) {
+			KillPlayer();
+		}
 	}
 }
