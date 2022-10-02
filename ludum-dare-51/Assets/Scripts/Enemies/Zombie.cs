@@ -46,14 +46,22 @@ public class Zombie : MonoBehaviour {
             } else {
                 EnablePhysics();
                 Vector3 launch = transform.forward * -1;
-                launch.y = 1.5f;
+                launch.y = 2.5f;
                 rb.AddForce(launch, ForceMode.VelocityChange);
+                StartCoroutine(KillZombieLaunch());
             }
        }
 
         if (health <= 0) KillZombie(true);
 
         transform.LookAt(player.transform);
+    }
+
+
+    IEnumerator KillZombieLaunch() {
+        yield return new WaitForSeconds(1);
+        KillZombie(false);
+        GameManager.instance.playerKills++;
     }
 
 	private void OnCollisionStay(Collision collision) {
@@ -105,7 +113,7 @@ public class Zombie : MonoBehaviour {
 		} else if (rand >= 2 && rand <= 9) {
             Instantiate(forcefieldUp, spawnPos, Quaternion.identity);
         } else {
-            Instantiate(ammoUp, spawnPos, Quaternion.identity);
+            Instantiate(ammoUp, getRandomSpawnPos(), Quaternion.identity);
         }
         Instantiate(ammoUp, getRandomSpawnPos(), Quaternion.identity);
     }

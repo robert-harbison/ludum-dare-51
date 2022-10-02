@@ -6,14 +6,17 @@ public class ProjectileSpawner : MonoBehaviour
 {
     public GameObject projectile;
     private GameObject player;
+    public AudioSource shoot;
+
     private void FireProjectile()
     {
         if (Input.GetMouseButtonDown(0))
         {
             if (Cursor.lockState == CursorLockMode.Locked) {
                 PlayerController playerController = player.GetComponent<PlayerController>();
-                if (playerController.GetAmmo() > 0) {
+                if (playerController.GetAmmo() > 0 && !playerController.GetIsDead()) {
                     Instantiate(projectile, transform.position, player.transform.rotation);
+                    shoot.Play();
                     playerController.ReduceAmmo();
                 }
             } else {
