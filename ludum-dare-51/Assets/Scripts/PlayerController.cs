@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
 	private bool hasForcefield = true;
 	private float ammo = 10;
+	private bool isDead = false;
 
 	void Start()
 	{
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
 	void Update()
 	{
+		if (isDead) return;
 		Move();
 		Rotate();
 		HandleForcefield();
@@ -62,6 +64,10 @@ public class PlayerController : MonoBehaviour
 		} else {
 			hasForcefieldText.color = Color.gray;
 		}
+	}
+
+	public bool GetIsDead() {
+		return isDead;
 	}
 
 	private void HandleForcefield() {
@@ -110,7 +116,9 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void KillPlayer() {
-		Destroy(gameObject);
+		//Destroy(gameObject);
+		isDead = true;
+		GetComponent<MeshRenderer>().enabled = false;
 	}
 
 	public bool IsForcefieldOpen() {

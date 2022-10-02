@@ -9,6 +9,10 @@ public class EnemySpawner : MonoBehaviour {
 
     private float timeSinceLastSpawn = 0;
 
+	private void Start() {
+		timeSinceLastSpawn = timeBetweenSpawn;
+	}
+
 	private void Update() {
 		if (timeSinceLastSpawn >= timeBetweenSpawn) {
 			SpawnEnemy();
