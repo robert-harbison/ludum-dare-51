@@ -3,7 +3,11 @@ guid: 7efaefd4ee3d5d243852492290eb751f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - agent: {instanceID: 0}
+  - healthUp: {fileID: 1607054876794807064, guid: ec80bb57d9304e148a9dad7b2f1cdeec, type: 3}
+  - forcefieldUp: {fileID: 3536992186082419761, guid: c76c9706ffbd0de4c8d28d979b78b4a1, type: 3}
+  - ammoUp: {fileID: 6137837354505463009, guid: ae295fa241b6c574cb315477c16368f1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

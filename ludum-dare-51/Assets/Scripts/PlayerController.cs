@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
 	public TMPro.TMP_Text hasForcefieldText;
 	public TMPro.TMP_Text healthText;
+	public TMPro.TMP_Text ammoText;
 
 	public float speed = 6.0F;
 	public float gravity = 20.0F;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
 	private float forceFieldTimer = 0f;
 
 	private bool hasForcefield = true;
+	private float ammo = 10;
 
 	void Start()
 	{
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
 		Rotate();
 		HandleForcefield();
 		healthText.text = "Health: " + health + " / 3";
+		ammoText.text = "Ammo: " + ammo + "/ 10";
 		if (hasForcefield) {
 			hasForcefieldText.color = Color.blue;
 		} else {
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void HandleForcefield() {
-		if (Input.GetKey(KeyCode.F) && forceFieldTimer < forceFieldMaxTime) {
+		if (Input.GetKey(KeyCode.LeftShift) && forceFieldTimer < forceFieldMaxTime) {
 			forceFieldTimer += Time.deltaTime;
 			if (hasForcefield) {
 				forcefield.SetActive(true);
@@ -84,6 +87,12 @@ public class PlayerController : MonoBehaviour
 					break;
 				case PowerUpType.HEALTH:
 					if (health < 3) health += 1;
+					break;
+				case PowerUpType.AMMO:
+					if (ammo < 10)
+                    {
+						ammo++;
+					}
 					break;
 				default:
 					break;
