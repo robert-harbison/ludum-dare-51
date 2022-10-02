@@ -13,6 +13,10 @@ public class PowerUp : MonoBehaviour {
     public PowerUpType type;
 
 	private void Start() {
-		Destroy(gameObject, 10f);
+        if (type == PowerUpType.AMMO) {
+            Destroy(gameObject, 45f);
+        } else {
+            Destroy(gameObject, 10f);
+        }
 	}
 }
