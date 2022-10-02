@@ -13,6 +13,6 @@ public class PowerUp : MonoBehaviour {
     public PowerUpType type;
 
 	private void Start() {
-		Destroy(gameObject, 15f);
+		Destroy(gameObject, 10f);
 	}
 }

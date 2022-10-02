@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
 	private int health = 3;
 	public GameObject forcefield;
+	private float forceFieldMaxTime = 3f;
+	private float forceFieldTimer = 0f;
 
 	private bool hasForcefield = true;
 	private float ammo = 10;
@@ -63,12 +65,14 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void HandleForcefield() {
-		if (Input.GetKey(KeyCode.LeftShift)) {
+		if (Input.GetKey(KeyCode.LeftShift) && forceFieldTimer < forceFieldMaxTime) {
+			forceFieldTimer += Time.deltaTime;
 			if (hasForcefield) {
 				forcefield.SetActive(true);
 				hasForcefield = false;
 			}
 		} else if (forcefield.activeSelf) {
+			forceFieldTimer = 0;
 			forcefield.SetActive(false);
 		}
 	}
@@ -107,6 +111,10 @@ public class PlayerController : MonoBehaviour
 
 	private void KillPlayer() {
 		Destroy(gameObject);
+	}
+
+	public bool IsForcefieldOpen() {
+		return forcefield.activeSelf;
 	}
 
 	public void BombExploded() {

@@ -27,7 +27,8 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Zombie")){
             collision.gameObject.SendMessage("DamageZombie", 10);
-            Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
 }
