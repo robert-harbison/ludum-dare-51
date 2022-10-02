@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
 	private int ammo = 10;
 	private bool isDead = false;
 
+	public Animator animController;
+	public GameObject playerModel;
+
 	void Start()
 	{
 		// Store reference to attached component
@@ -37,6 +40,8 @@ public class PlayerController : MonoBehaviour
 		{
 			// Use input up and down for direction, multiplied by speed
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			animController.SetBool("isMoving", moveDirection != Vector3.zero);
+			animController.SetBool("reverse", moveDirection.z < 0);
 			moveDirection = transform.TransformDirection(moveDirection);
 			moveDirection *= speed;
 		}
@@ -125,8 +130,9 @@ public class PlayerController : MonoBehaviour
 
 	private void KillPlayer() {
 		//Destroy(gameObject);
+		animController.SetBool("isMoving", false);
 		isDead = true;
-		GetComponent<MeshRenderer>().enabled = false;
+		playerModel.SetActive(false);
 		GameManager.instance.SaveHighscore();
 	}
 
