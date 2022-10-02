@@ -14,13 +14,17 @@ public class BombSpawner : MonoBehaviour
     public bool bombIsSpawned = false;
     private float bombCountTime = 0;
 
+    private PlayerController playerController;
+
     private void Awake()
     {
         platformRaiseTime = 4f;
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void Update()
     {
+        if (playerController.GetIsDead()) return;
         float deltaTime = Time.deltaTime;
         timeSincePlatformMoved += deltaTime;
         bombCountTime += deltaTime;
