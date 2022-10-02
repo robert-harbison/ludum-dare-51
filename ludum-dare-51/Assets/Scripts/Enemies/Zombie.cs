@@ -10,11 +10,15 @@ public class Zombie : MonoBehaviour {
 
     public GameObject healthUp;
     public GameObject forcefieldUp;
+    public GameObject ammoUp;
 
     public float range = 1f;
     private float health;
 
+    private Rigidbody rb;
+
 	private void Start() {
+        rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         health = 10;
 	}
@@ -22,14 +26,43 @@ public class Zombie : MonoBehaviour {
 	private void Update() {
         float dist = Vector3.Distance(this.transform.position, player.transform.position);
 
-       if (dist > range) {
+        bool isForceFieldOpen = player.GetComponent<PlayerController>().IsForcefieldOpen();
+
+        float biteRange = isForceFieldOpen ? 3f : range;
+
+       if (dist > biteRange) {
             agent.destination = player.transform.position;
 	   } else {
-            player.SendMessage("ZombieBite");
-            KillZombie(false);
-
+            if (!isForceFieldOpen) {
+                player.SendMessage("ZombieBite");
+                KillZombie(false);
+            } else {
+                EnablePhysics();
+                Vector3 launch = transform.forward * -1;
+                launch.y = 1.5f;
+                rb.AddForce(launch, ForceMode.VelocityChange);
+            }
        }
+
         if (health <= 0) KillZombie(true);
+
+        transform.LookAt(player.transform);
+    }
+
+	private void OnCollisionStay(Collision collision) {
+		if (collision.gameObject.tag == "Arena") {
+            DisablePhysics();
+		}
+	}
+
+	private void EnablePhysics() {
+        rb.isKinematic = false;
+        agent.enabled = false;
+	}
+
+    private void DisablePhysics() {
+        rb.isKinematic = true;
+        agent.enabled = true;
     }
 
     public void DamageZombie(float damage) {
@@ -43,16 +76,26 @@ public class Zombie : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private void SpawnDeathDropChance() {
-        int rand = Random.Range(0, 11);
-
+    private Vector3 getRandomSpawnPos()
+    {
         Vector3 spawnPos = transform.position;
         spawnPos.y = 1.5f;
+        spawnPos.x += Random.Range(-1, 1);
+        spawnPos.z += Random.Range(-1, 1);
+        return spawnPos;
+    }
+    private void SpawnDeathDropChance() {
+        int rand = Random.Range(0, 12);
+
+        Vector3 spawnPos = getRandomSpawnPos();
 
         if (rand == 1) {
             Instantiate(healthUp, spawnPos, Quaternion.identity);
 		} else if (rand >= 2 && rand <= 9) {
             Instantiate(forcefieldUp, spawnPos, Quaternion.identity);
+        } else {
+            Instantiate(ammoUp, spawnPos, Quaternion.identity);
         }
-	}
+        Instantiate(ammoUp, getRandomSpawnPos(), Quaternion.identity);
+    }
 }
