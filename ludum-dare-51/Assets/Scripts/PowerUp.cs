@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum PowerUpType {
     HEALTH,
-    FORCEFIELD
+    FORCEFIELD,
+    AMMO
 }
 
 public class PowerUp : MonoBehaviour {
