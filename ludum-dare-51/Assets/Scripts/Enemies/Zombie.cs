@@ -79,9 +79,10 @@ public class Zombie : MonoBehaviour {
         health -= damage;
     }
 
-    private void KillZombie(bool withDrop) {
-        if (withDrop) {
+    private void KillZombie(bool playerKilled) {
+        if (playerKilled) {
             SpawnDeathDropChance();
+            GameManager.instance.playerKills++;
         }
         Destroy(gameObject);
     }

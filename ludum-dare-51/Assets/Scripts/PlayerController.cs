@@ -127,6 +127,7 @@ public class PlayerController : MonoBehaviour
 		//Destroy(gameObject);
 		isDead = true;
 		GetComponent<MeshRenderer>().enabled = false;
+		GameManager.instance.SaveHighscore();
 	}
 
 	public bool IsForcefieldOpen() {

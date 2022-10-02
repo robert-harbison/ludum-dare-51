@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour {
 
 	public int currentEnemyCount = 0;
 
+	public int playerKills = 0;
+
+	public TMPro.TMP_Text killText;
+
 	private void Awake() {
 		if (instance == null) {
 			instance = this;
@@ -16,5 +20,15 @@ public class GameManager : MonoBehaviour {
 		}
 
 		DontDestroyOnLoad(gameObject);
+	}
+
+	private void Update() {
+		killText.text = "Kills: " + playerKills;
+	}
+
+	public void SaveHighscore() {
+		if (PlayerPrefs.GetInt("Highscore", 0) < playerKills) {
+			PlayerPrefs.SetInt("Highscore", playerKills);
+		} 
 	}
 }
