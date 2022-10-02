@@ -1470,6 +1470,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366859817}
   m_CullTransparentMesh: 1
+--- !u!1 &1397554653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9198158747607502213, guid: ac40398924c054d42a56f40674aa35ec, type: 3}
+  m_PrefabInstance: {fileID: 110819161411944582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1640745719 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4085450756851918689, guid: ac40398924c054d42a56f40674aa35ec, type: 3}
@@ -1829,6 +1834,10 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 4363238051665464299, guid: 369fa72034a8d2945b825ffae5b6614b, type: 3}
+    - target: {fileID: 4085450756906252367, guid: ac40398924c054d42a56f40674aa35ec, type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1397554653}
     - target: {fileID: 4085450756906252367, guid: ac40398924c054d42a56f40674aa35ec, type: 3}
       propertyPath: hasForcefieldText
       value: 
