@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 	private float forceFieldTimer = 0f;
 
 	private bool hasForcefield = true;
-	private float ammo = 10;
+	private int ammo = 10;
 	private bool isDead = false;
 
 	void Start()
@@ -49,6 +49,10 @@ public class PlayerController : MonoBehaviour
 	private void Rotate()
     {
 		transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * 4f, 0));
+	}
+
+	public int GetAmmo() {
+		return ammo;
 	}
 
 	void Update()
@@ -81,6 +85,10 @@ public class PlayerController : MonoBehaviour
 			forceFieldTimer = 0;
 			forcefield.SetActive(false);
 		}
+	}
+
+	public void ReduceAmmo() {
+		ammo--;
 	}
 
 	private void OnTriggerEnter(Collider other) {

@@ -10,8 +10,15 @@ public class ProjectileSpawner : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Instantiate(projectile, transform.position, player.transform.rotation);
+            if (Cursor.lockState == CursorLockMode.Locked) {
+                PlayerController playerController = player.GetComponent<PlayerController>();
+                if (playerController.GetAmmo() > 0) {
+                    Instantiate(projectile, transform.position, player.transform.rotation);
+                    playerController.ReduceAmmo();
+                }
+            } else {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
         else if (Input.GetKey(KeyCode.Escape))
         {
