@@ -103,6 +103,7 @@ public class Zombie : MonoBehaviour {
         spawnPos.z += Random.Range(-1, 1);
         return spawnPos;
     }
+
     private void SpawnDeathDropChance() {
         int rand = Random.Range(0, 12);
 

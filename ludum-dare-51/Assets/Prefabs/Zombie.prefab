@@ -142,7 +142,7 @@ MonoBehaviour:
   forcefieldUp: {fileID: 3536992186082419761, guid: c76c9706ffbd0de4c8d28d979b78b4a1, type: 3}
   ammoUp: {fileID: 6137837354505463009, guid: ae295fa241b6c574cb315477c16368f1, type: 3}
   anim: {fileID: 5209667961273111171}
-  range: 1
+  range: 1.2
 --- !u!54 &-9155143609147411996
 Rigidbody:
   m_ObjectHideFlags: 0
